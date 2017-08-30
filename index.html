@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Demographics, Land Use, & Property Values in the Neighborhood: South River City Citizens" content="">
+    <meta name="Omar Navarro" content="">
+
+    <title>South River City Citizens</title>
+    <link rel="stylesheet" href="site/leaflet.css" />
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="site/leaflet.ie.css" />
+    <![endif]-->
+    <!--import Mapzen Libraries for search-->
+    <link rel="stylesheet" href="https://mapzen.com/js/mapzen.css">
+    <script src="https://mapzen.com/js/mapzen.min.js"></script>
+    <style>
+        html { height: 100% }
+        body { height: 100%; margin: 0; padding: 0;}
+        #map{ height: 100% }
+    </style>    <link rel="stylesheet" href="site/gh-pages.css" />
+</head>
+<body>
+<div id="map"></div>
+<!--import modules for fgdb to JSON functionality-->
+<script src="site/leaflet.js"></script>
+<script src="site/catiline.js"></script>
+<script src="leaflet.fgdb.js"></script>
+<script src="site/colorbrewer.js"></script>
+<script src="site/spin.js"></script>
+<!--import modules for search box-->
+<script src="https://mapzen.com/tangram/tangram.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-hash/0.2.1/leaflet-hash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.9.2/leaflet-geocoder-mapzen.min.js"></script>
+<!--import geoJSON layers-->
+<script src="js/Population2000.js" type="text/javascript"></script>
+<script src="js/Population2010.js" type="text/javascript"></script>
+<script src="js/Population2015.js" type="text/javascript"></script>
+<script src="js/MedianAge2015.js" type="text/javascript"></script>
+<script src="js/MedianHouseholdIncome2015.js" type="text/javascript"></script>
+<script src="js/HispanicDensity2015.js" type="text/javascript"></script>
+<script src="js/BlackDensity2015.js" type="text/javascript"></script>
+<script src="js/Appraisals2017.js" type="text/javascript"></script>
+<script src="js/Zoning2017.js" type="text/javascript"></script>
+
+<script>
+    var map = L.map('map').setView([30.238062, -97.752175], 14);
+    var mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoib21hci1uYXZhcnJvIiwiYSI6ImNpanN2ZWZxZzBoa291eWx4ZWdsajl1OGIifQ.SH4OG9811nirTGJ3rE4DHw'
+    var mbAttri = '<a href="https://www.austintexas.gov/sites/default/files/files/Planning/zoning_guide.pdf">City of Austin Zoning Guide</a> | <a href="https://sites.google.com/a/austincc.edu/gis-acc/">ACC GIS</a> | Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>'
+    <!-- mapbox basemap layers and layer control-->
+    streets = L.tileLayer(mbUrl,{
+        attribution: mbAttri,
+        maxZoom: 18,
+        id: 'mapbox.streets'
+    }).addTo(map);
+
+    var watercolor = L.tileLayer('http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg',{attribution:'<a href="https://sites.google.com/a/austincc.edu/gis-acc/">ACC GIS</a> | Map tiles by <a href="http://stamen.com">Stamen Design</a> | <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> | Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>'});
+
+    var baseLayers = {
+        "Streets": streets,
+        "Water Color": watercolor
+    };
+/*add geocoder with key*/
+    var geocoder = L.control.geocoder('mapzen-LtuMF6J', {
+        autocomplete: false,
+        params: {
+            sources: 'osm',
+            'boundary.country': 'USA'
+        }
+    });
+    geocoder.addTo(map);
+
+    // Appraisals and Improvements
+    // getting specific attribute within gdb will assist in coloring
+    function OnePointTwentyFive(s){
+        return "#f7fcfd";
+    }
+/*Add each color separately for choropleth*/
+    var options125 = {
+        onEachFeature: function(feature, layer) {
+            if (feature.properties) {
+                layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+                    return k + ": " + feature.properties[k];
+                }).join("<br />"), {
+                    maxHeight: 200
+                });
+            }
+        },
+        style:function(f){
+            return  {
+                opacity: 1,
+                fillOpacity: 0.7,
+                radius: 6,
+                color: OnePointTwentyFive(f)
+            };
+        }, pointToLayer: function(feature, latlng) {
+            return L.circleMarker(latlng, {
+                opacity: 1,
+                fillOpacity: 0.7,
+                color: OnePointTwentyFive(feature)
+            });
+        }
+    };
+    var OnePointTwentyFiveLayer = L.fileGDB('site/1-25.gdb.zip',options125);
+
+
+    function OnePointFifty(s){
+        return "#e0ecf4";
+    }
+    var options150 = {
+        onEachFeature: function(feature, layer) {
+            if (feature.properties) {
+                layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+                    return k + ": " + feature.properties[k];
+                }).join("<br />"), {
+                    maxHeight: 200
+                });
+            }
+        },
+        style:function(f){
+            return  {
+                opacity: 1,
+                fillOpacity: 0.7,
+                radius: 6,
+                color: OnePointFifty(f)
+            };
+        }, pointToLayer: function(feature, latlng) {
+            return L.circleMarker(latlng, {
+                opacity: 1,
+                fillOpacity: 0.7,
+                color: OnePointFifty(feature)
+            });
+        }
+    };
+    var OnePointFiftyLayer = L.fileGDB('site/1-50.gdb.zip',options150);
+
+
+    function Two(s){
+        return "#bfd3e6";
+    }
+    var options2 = {
+        onEachFeature: function(feature, layer) {
+            if (feature.properties) {
+                layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+                    return k + ": " + feature.properties[k];
+                }).join("<br />"), {
+                    maxHeight: 200
+                });
+            }
+        },
+        style:function(f){
+            return  {
+                opacity: 1,
+                fillOpacity: 0.7,
+                radius: 6,
+                color: Two(f)
+            };
+        }, pointToLayer: function(feature, latlng) {
+            return L.circleMarker(latlng, {
+                opacity: 1,
+                fillOpacity: 0.7,
+                color: Two(feature)
+            });
+        }
+    };
+    var TwoLayer = L.fileGDB('site/2.gdb.zip',options2);
+
+
+    function Three(s){
+        return "#9ebcda";
+    }
+    var options3 = {
+        onEachFeature: function(feature, layer) {
+            if (feature.properties) {
+                layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+                    return k + ": " + feature.properties[k];
+                }).join("<br />"), {
+                    maxHeight: 200
+                });
+            }
+        },
+        style:function(f){
+            return  {
+                opacity: 1,
+                fillOpacity: 0.7,
+                radius: 6,
+                color: Three(f)
+            };
+        }, pointToLayer: function(feature, latlng) {
+            return L.circleMarker(latlng, {
+                opacity: 1,
+                fillOpacity: 0.7,
+                color: Three(feature)
+            });
+        }
+    };
+    var ThreeLayer = L.fileGDB('site/3.gdb.zip',options3);
+
+
+    function Four(s){
+        return "#8c96c6";
+    }
+    var options4 = {
+        onEachFeature: function(feature, layer) {
+            if (feature.properties) {
+                layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+                    return k + ": " + feature.properties[k];
+                }).join("<br />"), {
+                    maxHeight: 200
+                });
+            }
+        },
+        style:function(f){
+            return  {
+                opacity: 1,
+                fillOpacity: 0.7,
+                radius: 6,
+                color: Four(f)
+            };
+        }, pointToLayer: function(feature, latlng) {
+            return L.circleMarker(latlng, {
+                opacity: 1,
+                fillOpacity: 0.7,
+                color: Four(feature)
+            });
+        }
+    };
+    var FourLayer = L.fileGDB('site/4.gdb.zip',options4);
+
+
+    function Five(s){
+        return "#8c6bb1";
+    }
+    var options5 = {
+        onEachFeature: function(feature, layer) {
+            if (feature.properties) {
+                layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+                    return k + ": " + feature.properties[k];
+                }).join("<br />"), {
+                    maxHeight: 200
+                });
+            }
+        },
+        style:function(f){
+            return  {
+                opacity: 1,
+                fillOpacity: 0.7,
+                radius: 6,
+                color: Five(f)
+            };
+        }, pointToLayer: function(feature, latlng) {
+            return L.circleMarker(latlng, {
+                opacity: 1,
+                fillOpacity: 0.7,
+                color: Five(feature)
+            });
+        }
+    };
+    var FiveLayer = L.fileGDB('site/5.gdb.zip',options5);
+
+
+    function Six(s){
+        return "#88419d";
+    }
+    var options6 = {
+        onEachFeature: function(feature, layer) {
+            if (feature.properties) {
+                layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+                    return k + ": " + feature.properties[k];
+                }).join("<br />"), {
+                    maxHeight: 200
+                });
+            }
+        },
+        style:function(f){
+            return  {
+                opacity: 1,
+                fillOpacity: 0.7,
+                radius: 6,
+                color: Six(f)
+            };
+        }, pointToLayer: function(feature, latlng) {
+            return L.circleMarker(latlng, {
+                opacity: 1,
+                fillOpacity: 0.7,
+                color: Six(feature)
+            });
+        }
+    };
+    var SixLayer = L.fileGDB('site/6.gdb.zip',options6);
+
+
+    function Seven(s){
+        return "#6e016b";
+    }
+    var options7 = {
+        onEachFeature: function(feature, layer) {
+            if (feature.properties) {
+                layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+                    return k + ": " + feature.properties[k];
+                }).join("<br />"), {
+                    maxHeight: 200
+                });
+            }
+        },
+        style:function(f){
+            return  {
+                opacity: 1,
+                fillOpacity: 0.7,
+                radius: 6,
+                color: Seven(f)
+            };
+        }, pointToLayer: function(feature, latlng) {
+            return L.circleMarker(latlng, {
+                opacity: 1,
+                fillOpacity: 0.7,
+                color: Seven(feature)
+            });
+        }
+    };
+    var SevenLayer = L.fileGDB('site/7.gdb.zip',options7);
+
+    // Homesites Only
+    function darkRedColor(s){
+        return "#d6604d";
+    }
+    var options = {
+        onEachFeature: function(feature, layer) {
+            if (feature.properties) {
+                layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+                    return k + ": " + feature.properties[k];
+                }).join("<br />"), {
+                    maxHeight: 200
+                });
+            }
+        },
+        style:function(f){
+            return  {
+                opacity: 1,
+                fillOpacity: 0.7,
+                radius: 6,
+                color: darkRedColor(f)
+            };
+        }, pointToLayer: function(feature, latlng) {
+            return L.circleMarker(latlng, {
+                opacity: 1,
+                fillOpacity: 0.7,
+                color: darkRedColor(feature)
+            });
+        }
+    };
+    var homesitesOnlyLayer = L.fileGDB('site/Homesites_Only.gdb.zip',options);
+
+    // Non-Homesites Only
+    function darkGreyColor(s){
+        return "#878787";
+    }
+    var options = {
+        onEachFeature: function(feature, layer) {
+            if (feature.properties) {
+                layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+                    return k + ": " + feature.properties[k];
+                }).join("<br />"), {
+                    maxHeight: 200
+                });
+            }
+        },
+        style:function(f){
+            return  {
+                opacity: 1,
+                fillOpacity: 0.7,
+                radius: 6,
+                color: darkGreyColor(f)
+            };
+        }, pointToLayer: function(feature, latlng) {
+            return L.circleMarker(latlng, {
+                opacity: 1,
+                fillOpacity: 0.7,
+                color: darkGreyColor(feature)
+            });
+        }
+    };
+    var NonHomesitesOnlyLayer = L.fileGDB('site/Non_Homesites_Only.gdb.zip',options);
+
+    // Properties in Lawsuit Process
+    // Non-Homesites Only
+    function darkGreyColor(s){
+        return "#878787";
+    }
+    var options = {
+        onEachFeature: function(feature, layer) {
+            if (feature.properties) {
+                layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+                    return k + ": " + feature.properties[k];
+                }).join("<br />"), {
+                    maxHeight: 200
+                });
+            }
+        },
+        style:function(f){
+            return  {
+                opacity: 1,
+                fillOpacity: 0.7,
+                radius: 6,
+                color: darkGreyColor(f)
+            };
+        }, pointToLayer: function(feature, latlng) {
+            return L.circleMarker(latlng, {
+                opacity: 1,
+                fillOpacity: 0.7,
+                color: darkGreyColor(feature)
+            });
+        }
+    };
+    var lawsuitLayer = L.fileGDB('site/Properties_in_Lawsuit_Process.gdb.zip',options);
+
+    function choroplethize(d) {
+        <!-- jenks breaks from 2010 were applied to 2000 & 2015 as well-->
+        <!-- total population layers share symbology and classes-->
+        return d > 1174  ? '#045a8d' :
+            d > 1082  ? '#2b8cbe' :
+                d > 800  ? '#74a9cf' :
+                    d > 710  ? '#bdc9e1' :
+                        <!-- else value must be less than or equal to 710-->
+                        '#f1eef6';
+    }
+
+    function choroplethizeAge(d) {
+        <!-- jenks breaks determined in ArcMap symbology-->
+        <!-- color decisions were suggested by Cynthia Brewers colorbrewer2.org-->
+        return d > 35.7 ? '#7a0177' :
+            d > 34.8  ? '#c51b8a' :
+                d > 31.8  ? '#f768a1' :
+                    d > 29 ? '#fbb4b9' :
+                        <!-- else value must be less than or equal to 29-->
+                        '#feebe2';
+    }
+
+    function choroplethizeIncome(d) {
+        return d > 92237 ? '#253494' :
+            d > 65767  ? '#2c7fb8' :
+                d > 42353  ? '#41b6c4' :
+                    d > 34543 ? '#a1dab4' :
+                        '#ffffcc';
+    }
+
+    function choroplethizeBlackDensity(d) {
+        return d > 2.662 ? '#b30000' :
+            d > 2.203  ? '#e34a33' :
+                d > 1.762  ? '#fc8d59' :
+                    d > 0.000001 ? '#fdcc8a' :
+                        <!-- else value must be equal to 0%-->
+                        '#fef0d9';
+    }
+
+    function choroplethizeHispanicDensity(d) {
+        return d > 30.418 ? '#b30000' :
+            d > 20.22  ? '#e34a33' :
+                d > 11.868  ? '#fc8d59' :
+                    d > 6.364 ? '#fdcc8a' :
+                        <!-- else value must be less than or equal to 6.364%-->
+                        '#fef0d9';
+    }
+
+    <!-- unique symbol for each of the ten portions-->
+    <!-- median was calculated in excel-->
+    function choroplethizeAppraisals(d) {
+        return d > 608969 ? '#54278f' :
+            d > 590525  ? '#756bb1' :
+                d > 566619  ? '#9e9ac8' :
+                    d > 440220  ? '#cbc9e2' :
+                        '#f2f0f7' ;
+    }
+
+    function qualitativeColors(d) {
+        return d >= 14 ? '#a6cee3':
+            d >= 13 ? '#1f78b4':
+            d >= 12 ? '#b2df8a':
+            d >= 11 ? '#33a02c':
+            d >= 10 ? '#fb9a99':
+            d >= 9 ? '#e31a1c':
+            d >= 8 ? '#fdbf6f':
+            d >= 7 ? '#ff7f00':
+            d >= 6 ? '#cab2d6':
+            d >= 5 ? '#6a3d9a':
+            d >= 4 ? '#ffff99':
+            d >= 3 ? '#b15928':
+            d >= 2 ? '#ccebc5':
+             '#ccebc5';
+    }
+
+    function parcelsLegendColors(d) {
+        return d >= 8 ? '#6e016b':
+            d >= 7 ? '#88419d':
+            d >= 6 ? '#8c6bb1':
+            d >= 5 ? '#8c96c6':
+            d >= 4 ? '#9ebcda':
+            d >= 3 ? '#bfd3e6':
+            d >= 2 ? '#e0ecf4':
+                     '#f7fcfd';
+    }
+
+    function binaryColors(d) {
+        return d >= 1  ? '#d6604d' :
+            '#878787';
+    }
+
+    <!-- styling for total population layers -->
+    function styleTotalPop(feature) {
+        return {
+            weight: .75,
+            opacity: 0.5,
+            color: 'grey',
+            dashArray: '0',
+            fillOpacity: 0.9,
+            fillColor: choroplethize(feature.properties.Total)
+        }
+    }
+
+    <!-- styling for median age layer -->
+    function styleDoesntAge(feature) {
+        return {
+            weight: .75,
+            opacity: 0.5,
+            color: 'grey',
+            dashArray: '0',
+            fillOpacity: 0.9,
+            fillColor: choroplethizeAge(feature.properties.Median_Age)
+        }
+    }
+
+    <!-- styling for median household income layer -->
+    function styleIncome(feature) {
+        return {
+            weight: .75,
+            opacity: 0.5,
+            color: 'grey',
+            dashArray: '0',
+            fillOpacity: 0.9,
+            fillColor: choroplethizeIncome(feature.properties.Median_Hou)
+        }
+    }
+
+    <!-- styling for black density layer -->
+    function styleBlackDensity(feature) {
+        return {
+            weight: .75,
+            opacity: 0.5,
+            color: 'grey',
+            dashArray: '0',
+            fillOpacity: 0.9,
+            fillColor: choroplethizeBlackDensity(feature.properties.BLACK_DENS)
+        }
+    }
+
+    <!-- styling for hispanic density layer -->
+    function styleHispanicDensity(feature) {
+        return {
+            weight: .75,
+            opacity: 0.5,
+            color: 'grey',
+            dashArray: '0',
+            fillOpacity: 0.9,
+            fillColor: choroplethizeHispanicDensity(feature.properties.HISPANIC_D)
+        }
+    }
+
+    <!-- styling for Appraisal layer -->
+    function styleAppraisals(feature) {
+        return {
+            weight: .75,
+            opacity: 0.5,
+            color: 'grey',
+            dashArray: '0',
+            fillOpacity: 0.9,
+            fillColor: choroplethizeAppraisals(feature.properties.Median_App)
+        }
+    }
+
+    <!-- styling for total population layers -->
+    function styleZoning(feature) {
+        return {
+            weight: .75,
+            opacity: 0.5,
+            color: 'grey',
+            dashArray: '0',
+            fillOpacity: 0.9,
+            fillColor: qualitativeColors(feature.properties.Zone_Color)
+        }
+    }
+    <!-- add GeoJSON layers -->
+    var Population2000Layer = L.geoJson(Population2000, {
+        style: styleTotalPop,
+        onEachFeature: geojsonPopup2000,
+        pointToLayer: function (feature, latlng) {
+            return L.marker(latlng);
+        }
+    });
+
+    var Population2010Layer = L.geoJson(Population2010, {
+        style: styleTotalPop,
+        onEachFeature: geojsonPopup2010,
+        pointToLayer: function (feature, latlng) {
+            return L.marker(latlng);
+        }
+    });
+
+    var Population2015Layer = L.geoJson(Population2015, {
+        style: styleTotalPop,
+        onEachFeature: geojsonPopup2015,
+        pointToLayer: function (feature, latlng) {
+            return L.marker(latlng);
+        }
+    });
+
+    var MedianAge2015Layer = L.geoJson(MedianAge2015, {
+        style: styleDoesntAge,
+        onEachFeature: geojsonPopupForAgeAndRace,
+        pointToLayer: function (feature, latlng) {
+            return L.marker(latlng);
+        }
+    });
+
+    var MedianHouseholdIncome2015Layer = L.geoJson(MedianHouseholdIncome2015, {
+        style: styleIncome,
+        onEachFeature: geojsonPopupForAgeAndRace,
+        pointToLayer: function (feature, latlng) {
+            return L.marker(latlng);
+        }
+    });
+
+    var BlackDensity2015Layer = L.geoJson(BlackDensity2015, {
+        style: styleBlackDensity,
+        onEachFeature: geojsonPopupForAgeAndRace,
+        pointToLayer: function (feature, latlng) {
+            return L.marker(latlng);
+        }
+    });
+
+    var HispanicDensity2015Layer = L.geoJson(HispanicDensity2015, {
+        style: styleHispanicDensity,
+        onEachFeature: geojsonPopupForAgeAndRace,
+        pointToLayer: function (feature, latlng) {
+            return L.marker(latlng);
+        }
+    });
+
+    var Appraisals2017Layer = L.geoJson(Appraisals2017, {
+        style: styleAppraisals,
+        onEachFeature: geojsonPopupForAppraisals,
+        pointToLayer: function (feature, latlng) {
+            return L.marker(latlng);
+        }
+    });
+
+    var Zoning2017Layer = L.geoJson(Zoning2017, {
+        style: styleZoning,
+        onEachFeature: geojsonPopupForZoning,
+        pointToLayer: function (feature, latlng) {
+            return L.marker(latlng);
+        }
+    });
+
+    <!-- add PopUp Boxes with attributes of interest -->
+    function geojsonPopup2000(feature, layer){
+        if(feature.properties.BKGPIDFP00){
+            layer.bindPopup('GEOID:   ' + feature.properties.BKGPIDFP00 + '<br>2000 Total Population:   '+ feature.properties.Total)
+        }
+    }
+
+    function geojsonPopup2010(feature, layer){
+        if(feature.properties.GEOID10){
+            layer.bindPopup('GEOID:   ' + feature.properties.GEOID10 + '<br>2010 Total Population:   '+ feature.properties.Total)
+        }
+    }
+
+    function geojsonPopup2015(feature, layer){
+        if(feature.properties.GEOID10){
+            layer.bindPopup('GEOID:   ' + feature.properties.GEOID10 + '<br>2015 Total Population:   '+ feature.properties.Total)
+        }
+    }
+
+    <!-- if logic for getting different attributes -->
+    function geojsonPopupForAgeAndRace(feature, layer){
+        if(feature.properties.Median_Age){
+            layer.bindPopup('GEOID:   ' + feature.properties.GEOID + '<br>Median Age:   '+ feature.properties.Median_Age)
+        }
+        if (feature.properties.Median_Hou){
+            layer.bindPopup('GEOID:   ' + feature.properties.GEOID + '<br>Median Household Income:   $'+ feature.properties.Median_Hou)
+        }
+        if (feature.properties.BLACK_DENS) {
+            layer.bindPopup('GEOID:   ' + feature.properties.GEOID + '<br>Black Density:   ' + feature.properties.BLACK_DENS + '%')
+        }
+        if (feature.properties.HISPANIC_D){
+            layer.bindPopup('GEOID:   ' + feature.properties.GEOID + '<br>Hispanic Density:   '+ feature.properties.HISPANIC_D + '%')
+        }
+    }
+
+    function geojsonPopupForAppraisals(feature, layer){
+        if(feature.properties.Name){
+            layer.bindPopup('Name:   ' + feature.properties.Name + '<br>January 2017 Median Appraisal Value:   $'+ feature.properties.Median_App)
+        }
+    }
+
+    function geojsonPopupForZoning(feature, layer){
+        if(feature.properties.Zoning_Cod){
+            layer.bindPopup('Zoning Code:   ' + feature.properties.Zoning_Cod + '<br>Description:   '+ feature.properties.Descriptio)
+        }
+    }
+
+
+    var AllAppraisalClasses = L.layerGroup([OnePointTwentyFiveLayer,OnePointFiftyLayer,TwoLayer,ThreeLayer,FourLayer,FiveLayer,SixLayer,SevenLayer]);
+    AllAppraisalClasses.addTo(map);
+    var featureLayers = {
+        "2000 Census Population": Population2000Layer,
+        "2010 Census Population": Population2010Layer,
+        "2015 ACS Estimate Population": Population2015Layer,
+        "2015 Median Age": MedianAge2015Layer,
+        "2015 Median Household Income": MedianHouseholdIncome2015Layer,
+        "2015 Black Density": BlackDensity2015Layer,
+        "2015 Hispanic Density": HispanicDensity2015Layer,
+        "2017 Median Appraisal Values": Appraisals2017Layer,
+        "Appraisal Values by Parcel<br>&ensp;&ensp;&ensp;&ensp;as of January 2017": AllAppraisalClasses,
+        "Property Type (State Code) for Only Homes": homesitesOnlyLayer,
+        "Property Type (State Code) for Only Non-Homes": NonHomesitesOnlyLayer,
+        "Properties currently<br>&ensp; in lawsuit": lawsuitLayer,
+        "2017 January Zoning": Zoning2017Layer
+    };
+    var geojson = L.control.layers(baseLayers, featureLayers).addTo(map);
+
+    // LEGEND STARTS HERE
+    var AppraisalbyParcelLegend = L.control({position: 'bottomright'});
+    var Population2000Legend = L.control({position: 'bottomright'});
+    var Population2010Legend = L.control({position: 'bottomright'});
+    var Population2015Legend = L.control({position: 'bottomright'});
+    var MedianAge2015Legend = L.control({position: 'bottomright'});
+    var MedianHouseholdIncome2015Legend = L.control({position: 'bottomright'});
+    var BlackDensity2015Legend = L.control({position: 'bottomright'});
+    var HispanicDensity2015Legend = L.control({position: 'bottomright'});
+    var AppraisalLegend = L.control({position: 'bottomright'});
+    var HomesiteLegend = L.control({position: 'bottomright'});
+    var lawsuitLegend = L.control({position: 'bottomright'});
+    var Zoning2017Legend= L.control({position: 'bottomright'});
+
+    Population2000Legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [710, 800, 1082, 1174],
+            labels = ['2000 Census<br>Total Population'],
+            from, to;
+
+        for (var i = 0; i < grades.length; i++) {
+            from = grades[i];
+            to = grades[i + 1];
+
+            labels.push(
+                '<i style="background:' + choroplethize(from + 1) + '"></i> ' +
+                from + (to ? ' - ' + to : ' +'));
+        }
+        div.innerHTML = labels.join('<br>');
+        return div;
+    };
+
+    Population2010Legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [710, 800, 1082, 1174],
+            labels = ['2010 Census<br>Total Population'],
+            from, to;
+
+        for (var i = 0; i < grades.length; i++) {
+            from = grades[i];
+            to = grades[i + 1];
+
+            labels.push(
+                '<i style="background:' + choroplethize(from + 1) + '"></i> ' +
+                from + (to ? ' - ' + to : ' +'));
+        }
+        div.innerHTML = labels.join('<br>');
+        return div;
+    };
+
+    Population2015Legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [710, 800, 1082, 1174],
+            labels = ['2015 American Census Survey<br>5-Year Estimate of<br>Total Population'],
+            from, to;
+
+        for (var i = 0; i < grades.length; i++) {
+            from = grades[i];
+            to = grades[i + 1];
+
+            labels.push(
+                '<i style="background:' + choroplethize(from + 1) + '"></i> ' +
+                from + (to ? ' - ' + to : ' +'));
+        }
+        div.innerHTML = labels.join('<br>');
+        return div;
+    };
+
+    MedianAge2015Legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [29, 31.8, 34.8, 35.7],
+            labels = ['2015 Median Age'],
+            from, to;
+
+        for (var i = 0; i < grades.length; i++) {
+            from = grades[i];
+            to = grades[i + 1];
+
+            labels.push(
+                '<i style="background:' + choroplethizeAge(from + .01) + '"></i> ' +
+                from + (to ? ' - ' + to + ' Years Old' : ' + Years Old'));
+        }
+        div.innerHTML = labels.join('<br>');
+        return div;
+    };
+
+    MedianHouseholdIncome2015Legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [34543, 42353, 65767, 92237],
+            labels = ['2015 Median Household Income'],
+            from, to;
+
+        for (var i = 0; i < grades.length; i++) {
+            from = grades[i];
+            to = grades[i + 1];
+
+            labels.push(
+                '<i style="background:' + choroplethizeIncome(from + 1) + '"></i> ' +
+                '$' + from + (to ? ' - $' + to : ' +'));
+        }
+        div.innerHTML = labels.join('<br>');
+        return div;
+    };
+
+    BlackDensity2015Legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [0.000001, 1.762, 2.203, 2.662],
+            labels = ['2015 Black Density'],
+            from, to;
+
+        for (var i = 0; i < grades.length; i++) {
+            from = grades[i];
+            to = grades[i + 1];
+
+            labels.push(
+                '<i style="background:' + choroplethizeBlackDensity(from + 0.000001) + '"></i> ' +
+                from + '%' + (to ? ' - ' + to + '%' : ' +'));
+        }
+        div.innerHTML = labels.join('<br>');
+        return div;
+    };
+
+    HispanicDensity2015Legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [6.364, 11.868, 20.220, 30.418],
+            labels = ['2015 Hispanic Density'],
+            from, to;
+
+        for (var i = 0; i < grades.length; i++) {
+            from = grades[i];
+            to = grades[i + 1];
+
+            labels.push(
+                '<i style="background:' + choroplethizeHispanicDensity(from + 1) + '"></i> ' +
+                from + '%' + (to ? ' - ' + to + '%' : ' +'));
+        }
+        div.innerHTML = labels.join('<br>');
+        return div;
+    };
+
+    AppraisalLegend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [440220, 566619, 590525, 608969],
+            labels = ['Median Appraisal Values<br>as of January 2017'],
+            from, to;
+
+        for (var i = 0; i < grades.length; i++) {
+            from = grades[i];
+            to = grades[i + 1];
+
+            labels.push(
+                '<i style="background:' + choroplethizeAppraisals(from + 1) + '"></i> ' +
+                '$' + from + (to ? ' - $' + to : ' +'));
+        }
+        div.innerHTML = labels.join('<br>');
+        return div;
+    };
+
+    AppraisalbyParcelLegend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [1, 2, 3, 4, 5, 6, 7, 8],
+            gradeLabel = ['$0 - 282,216', '$282,216.01 - $710,503', '$710,503.01 - $2,249,861', '$2,249,861.01 - $6,626,767 ', '$6,626,767.01 - $14,642,015', '$14,642,015.01 - $23,488,300', '$23,488,300.01 - $38,515,900', '$38,515,900.01 - $78,944,405'],
+            labels = ['Appraisal Values<br>as of January 2017'],
+            num, code;
+
+        for (var i = 1; i <= 8; i++) {
+            num = grades[i-1];
+            code = gradeLabel[i-1];
+            labels.push(
+                '<i style="background:' + parcelsLegendColors(num) + '"></i> ' +
+                code);
+        }
+        div.innerHTML = labels.join('<br>');
+        return div;
+    };
+
+    HomesiteLegend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [1,2],
+            gradeLabel = ['Homes','Non-Homes'],
+            labels = ['Property Type<br>as of January 2017'],
+            num,code;
+
+        for (var i = 1; i <= 2; i++) {
+            num = grades[i];
+            code = gradeLabel[i-1];
+            labels.push(
+                '<i style="background:' + binaryColors(num) + '"></i> ' +
+                code);
+        }
+        div.innerHTML = labels.join('<br>');
+        return div;
+    };
+
+    Zoning2017Legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [1,2,3,4,5,6,7,8,9,10,11,12,13,14],
+            gradeLabel = ['CS General Commercial Services','ERC East Riverside Corridor','GO General Office','GR Community Commercial','L Lake Commercial','LI Limited Industrial Services','LO Limited Office','LR Neighborhood Commercial','MF Multifamily<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 Limited Density<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 Highest Density','NO Neighborhood Office','P Public','PUD Planned Unit Development','RR Rural Residence','SF Single Family'],
+            labels = ['Zoning Code<br>as of January 2017'],
+            num,code;
+
+        for (var i = 1; i < 15; i++) {
+            num = grades[i];
+            code = gradeLabel[i-1];
+            labels.push(
+                '<i style="background:' + qualitativeColors(num) + '"></i> ' +
+                code);
+        }
+        div.innerHTML = labels.join('<br>');
+        return div;
+    };
+
+    AppraisalbyParcelLegend.addTo(map);
+    currentLegend = AppraisalbyParcelLegend;
+    map.on('overlayadd', function (eventLayer) {
+        if  (eventLayer.name === 'Appraisal Values by Parcel<br>&ensp;&ensp;&ensp;&ensp;as of January 2017') {
+            map.removeControl(currentLegend);
+            currentLegend = AppraisalbyParcelLegend;
+            AppraisalbyParcelLegend.addTo(map);
+        }
+        else if  (eventLayer.name === '2000 Census Population') {
+            map.removeControl(currentLegend);
+            currentLegend = Population2000Legend;
+            Population2000Legend.addTo(map);
+        }
+        else if  (eventLayer.name === '2010 Census Population') {
+            map.removeControl(currentLegend);
+            currentLegend = Population2010Legend;
+            Population2010Legend.addTo(map);
+        }
+        else if  (eventLayer.name === '2015 ACS Estimate Population') {
+            map.removeControl(currentLegend);
+            currentLegend = Population2015Legend;
+            Population2015Legend.addTo(map);
+        }
+        else if  (eventLayer.name === '2015 Median Age') {
+            map.removeControl(currentLegend);
+            currentLegend = MedianAge2015Legend;
+            MedianAge2015Legend.addTo(map);
+        }
+        else if  (eventLayer.name === '2015 Median Household Income') {
+            map.removeControl(currentLegend);
+            currentLegend = MedianHouseholdIncome2015Legend;
+            MedianHouseholdIncome2015Legend.addTo(map);
+        }
+        else if  (eventLayer.name === '2015 Black Density') {
+            map.removeControl(currentLegend);
+            currentLegend = BlackDensity2015Legend;
+            BlackDensity2015Legend.addTo(map);
+        }
+        else if  (eventLayer.name === '2015 Hispanic Density') {
+            map.removeControl(currentLegend);
+            currentLegend = HispanicDensity2015Legend;
+            HispanicDensity2015Legend.addTo(map);
+        }
+        else if (eventLayer.name === '2017 Median Appraisal Values') {
+            map.removeControl(currentLegend);
+            currentLegend = AppraisalLegend;
+            AppraisalLegend.addTo(map);
+        }
+        else if  (eventLayer.name === 'Property Type (State Code) for Only Homes') {
+            map.removeControl(currentLegend);
+            currentLegend = HomesiteLegend;
+            HomesiteLegend.addTo(map);
+        }
+        else if  (eventLayer.name === 'Property Type (State Code) for Only Non-Homes') {
+            map.removeControl(currentLegend);
+            currentLegend = HomesiteLegend;
+            HomesiteLegend.addTo(map);
+        }
+        else if  (eventLayer.name === "Properties currently<br>&ensp; in lawsuit") {
+            map.removeControl(currentLegend);
+            currentLegend = lawsuitLegend;
+            lawsuitLegend.addTo(map);
+        }
+        else if  (eventLayer.name === "2017 January Zoning") {
+            map.removeControl(currentLegend);
+            currentLegend = Zoning2017Legend;
+            Zoning2017Legend.addTo(map);
+        }
+    })
+    // LEGEND ENDS HERE
+
+</script>
+</body>
+</html>

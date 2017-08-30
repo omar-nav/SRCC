@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="151cd16c-c757-4847-91e3-d6dee6290676" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>homesiteLege</find>
+      <find>qualitat</find>
+      <find>binaryCo</find>
+      <find>legen</find>
+      <find>Homesite</find>
+      <find>property</find>
+      <find>nonHome</find>
+      <find>Red</find>
+      <find>colo</find>
+      <find>colorBr</find>
+      <find>return</find>
+      <find>featureLa</find>
+      <find>token</find>
+      <find>leaflet</find>
+      <find>mapzen</find>
+      <find>openstreetmap</find>
+      <find>osm</find>
+      <find>Mapzen</find>
+      <find>Appraisal</find>
+      <find>zip</find>
+      <find>byPar</find>
+      <find>arcelLegen</find>
+      <find>homesite</find>
+      <find>toggle</find>
+      <find>addto</find>
+      <find>legend</find>
+      <find>featureLayer</find>
+      <find>mapbox</find>
+      <find>layer</find>
+      <find>zoning</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/leaflet.fgdb.js" />
+        <option value="$PROJECT_DIR$/../BACKUP_gdb/index.html" />
+        <option value="$PROJECT_DIR$/site/leaflet.css" />
+        <option value="$USER_HOME$/Desktop/BACKUP_gdb/index.html" />
+        <option value="$USER_HOME$/Desktop/Backup_SRCC/site/colorbrewer.js" />
+        <option value="$PROJECT_DIR$/site/colorbrewer.js" />
+        <option value="$PROJECT_DIR$/js/Appraisals2017.js" />
+        <option value="$PROJECT_DIR$/buggedIndex.html" />
+        <option value="$USER_HOME$/Desktop/FOCUS ON ZONING ONLY/index.html" />
+        <option value="$PROJECT_DIR$/js/Zoning2017.js" />
+        <option value="$USER_HOME$/Desktop/Backup_SRCC/index.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/fgdb.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="784" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="SearchEverywhereHistoryKey" value="Appraisals&#9;FILE&#9;file://C:/Users/omar/Documents/SRCC_Neighborhood/SRCC/js/Appraisals2017.js" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\omar\Desktop\gdb" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.index.html">
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+    <configuration name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/SRCC/index.html" />
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="151cd16c-c757-4847-91e3-d6dee6290676" name="Default" comment="" />
+      <created>1492878320943</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1492878320943</updated>
+      <workItem from="1492878322088" duration="229000" />
+      <workItem from="1492878609522" duration="109000" />
+      <workItem from="1492878858326" duration="1104000" />
+      <workItem from="1492880701019" duration="646000" />
+      <workItem from="1492881383997" duration="91000" />
+      <workItem from="1492881535617" duration="822000" />
+      <workItem from="1492883609028" duration="586000" />
+      <workItem from="1492884694138" duration="904000" />
+      <workItem from="1492921608325" duration="209000" />
+      <workItem from="1492922044316" duration="273000" />
+      <workItem from="1492992860092" duration="26000" />
+      <workItem from="1493168694313" duration="293000" />
+      <workItem from="1493245775249" duration="1024000" />
+      <workItem from="1493247086213" duration="592000" />
+      <workItem from="1493250410426" duration="4487000" />
+      <workItem from="1493254973538" duration="729000" />
+      <workItem from="1493255760556" duration="25000" />
+      <workItem from="1493255864718" duration="443000" />
+      <workItem from="1493262343306" duration="341000" />
+      <workItem from="1493262949846" duration="2216000" />
+      <workItem from="1493334222482" duration="270000" />
+      <workItem from="1493468581323" duration="2168000" />
+      <workItem from="1493470820278" duration="2083000" />
+      <workItem from="1493473044315" duration="48000" />
+      <workItem from="1493473289840" duration="2213000" />
+      <workItem from="1493475534405" duration="817000" />
+      <workItem from="1493476366102" duration="114000" />
+      <workItem from="1493482832100" duration="250000" />
+      <workItem from="1493484227796" duration="3186000" />
+      <workItem from="1493490356788" duration="1363000" />
+      <workItem from="1493491756105" duration="432000" />
+      <workItem from="1493492267515" duration="208000" />
+      <workItem from="1493492525658" duration="53000" />
+      <workItem from="1493495418225" duration="6264000" />
+      <workItem from="1493502846114" duration="659000" />
+      <workItem from="1493503727390" duration="27000" />
+      <workItem from="1493504729341" duration="574000" />
+      <workItem from="1493513647588" duration="232000" />
+      <workItem from="1493514444919" duration="8210000" />
+      <workItem from="1493523096702" duration="568000" />
+      <workItem from="1493525659668" duration="98000" />
+      <workItem from="1493526648075" duration="387000" />
+      <workItem from="1493527141001" duration="6000" />
+      <workItem from="1493527164080" duration="1344000" />
+      <workItem from="1493528685825" duration="2112000" />
+      <workItem from="1493555418961" duration="284000" />
+      <workItem from="1493555762690" duration="3282000" />
+      <workItem from="1493560974909" duration="898000" />
+      <workItem from="1493561910887" duration="5331000" />
+      <workItem from="1493568454414" duration="345000" />
+      <workItem from="1493573269662" duration="133000" />
+      <workItem from="1493573571861" duration="265000" />
+      <workItem from="1493574653169" duration="790000" />
+      <workItem from="1493575601103" duration="392000" />
+      <workItem from="1493576109440" duration="115000" />
+      <workItem from="1493583755208" duration="1885000" />
+      <workItem from="1493585853443" duration="1286000" />
+      <workItem from="1493590972403" duration="247000" />
+      <workItem from="1493591488325" duration="602000" />
+      <workItem from="1493593165128" duration="351000" />
+      <workItem from="1493593530878" duration="76000" />
+      <workItem from="1493595984103" duration="32000" />
+      <workItem from="1493596151073" duration="5679000" />
+      <workItem from="1493602529170" duration="1007000" />
+      <workItem from="1493638726421" duration="165000" />
+      <workItem from="1493688128999" duration="657000" />
+      <workItem from="1493905988065" duration="560000" />
+      <workItem from="1493934845296" duration="216000" />
+      <workItem from="1493936381685" duration="39000" />
+      <workItem from="1494069083774" duration="4320000" />
+      <workItem from="1494699289386" duration="690000" />
+      <workItem from="1504095650427" duration="24000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="78506000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="0" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24776785" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39869282" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3268921" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="9" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/site/colorbrewer.js" />
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1274">
+          <caret line="49" column="17" lean-forward="true" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/colorbrewer.js" />
+    <entry file="file://$PROJECT_DIR$/site/catiline.js" />
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="910">
+          <caret line="35" column="49" lean-forward="false" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/catiline.js" />
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/catiline.js" />
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fgdb.js" />
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="30" column="50" lean-forward="true" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/gh-pages.css" />
+    <entry file="file://$PROJECT_DIR$/site/catiline.js" />
+    <entry file="file://$PROJECT_DIR$/site/colorbrewer.js" />
+    <entry file="file://$PROJECT_DIR$/fgdb.js" />
+    <entry file="file://$PROJECT_DIR$/site/gh-pages.css" />
+    <entry file="file://$PROJECT_DIR$/site/catiline.js" />
+    <entry file="file://$PROJECT_DIR$/site/colorbrewer.js" />
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fgdb.js" />
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fgdb.js" />
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/leaflet.ie.css" />
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="60" column="30" lean-forward="false" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/grayscale.js" />
+    <entry file="file://$PROJECT_DIR$/site/catiline.js" />
+    <entry file="file://$PROJECT_DIR$/site/leaflet.js" />
+    <entry file="file://$PROJECT_DIR$/site/gh-pages.css" />
+    <entry file="file://$PROJECT_DIR$/../BACKUP_gdb/index.html" />
+    <entry file="file://$PROJECT_DIR$/site/leaflet.css" />
+    <entry file="file://$USER_HOME$/Desktop/Backup_Neighborhood_Analysis/index.html" />
+    <entry file="file://$USER_HOME$/Desktop/BACKUP_gdb/index.html" />
+    <entry file="file://$PROJECT_DIR$/leaflet.fgdb.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-669">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Backup_SRCC/site/colorbrewer.js" />
+    <entry file="file://$USER_HOME$/Desktop/legend/index.html" />
+    <entry file="file://$PROJECT_DIR$/js/Appraisals2017.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Backup2/index.html" />
+    <entry file="file://$PROJECT_DIR$/buggedIndex.html" />
+    <entry file="file://$USER_HOME$/Desktop/FOCUS ON ZONING ONLY/index.html" />
+    <entry file="file://$PROJECT_DIR$/js/Population2015.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Zoning2017.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="0" column="250" lean-forward="false" selection-start-line="0" selection-start-column="250" selection-end-line="0" selection-end-column="250" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/colorbrewer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="50" column="34" lean-forward="true" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Backup_SRCC/index.html" />
+    <entry file="file://$PROJECT_DIR$/../../History/ACC/Fall 2016/GISC_2459_WebServed/Leaflet/The_Sandboard_Shop/index.html" />
+    <entry file="file://$PROJECT_DIR$/fgdb.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-21060">
+          <caret line="1295" column="30" lean-forward="false" selection-start-line="1295" selection-start-column="30" selection-end-line="1295" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/spin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="930" column="58" lean-forward="false" selection-start-line="930" selection-start-column="58" selection-end-line="930" selection-end-column="58" />
+          <folding>
+            <marker date="1493601770004" expanded="true" signature="2681:2687" ph="©" />
+            <marker date="1493601770004" expanded="true" signature="3377:3383" ph="©" />
+            <marker date="1493601770004" expanded="true" signature="24826:24832" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="26240:26251" ph="..." />
+            <marker date="1493601770004" expanded="true" signature="26825:26836" ph="..." />
+            <marker date="1493601770004" expanded="true" signature="27448:27459" ph="..." />
+            <marker date="1493601770004" expanded="true" signature="28016:28027" ph="..." />
+            <marker date="1493601770004" expanded="true" signature="28645:28656" ph="..." />
+            <marker date="1493601770004" expanded="true" signature="29241:29252" ph="..." />
+            <marker date="1493601770004" expanded="true" signature="29861:29872" ph="..." />
+            <marker date="1493601770004" expanded="true" signature="30492:30503" ph="..." />
+            <marker date="1493601770004" expanded="true" signature="31355:31366" ph="..." />
+            <marker date="1493601770004" expanded="true" signature="31934:31945" ph="..." />
+            <marker date="1493601770004" expanded="true" signature="32504:32510" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="32510:32516" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="32516:32522" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="32522:32528" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="32528:32534" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="32534:32540" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="32540:32546" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="32546:32552" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="32552:32558" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="32579:32585" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="32585:32591" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="32591:32597" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="32597:32603" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="32603:32609" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="32609:32615" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="32615:32621" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="32621:32627" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="32627:32633" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="33000:33011" ph="..." />
+            <marker date="1493601770004" expanded="true" signature="33000:33040" ph="..." />
+            <marker date="1493601770004" expanded="true" signature="33356:33362" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="33362:33368" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="33368:33374" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="33374:33380" ph=" " />
+            <marker date="1493601770004" expanded="true" signature="35840:35846" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
